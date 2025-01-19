@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { albumLinks, ACCES_TOKEN } from "../utils/consts";
-import Loader from "./Loader";
+import { albumLinks, ACCES_TOKEN } from "../../utils/consts";
+import Loader from "../Loader";
 import AlbumItem from "./AlbumItem";
+import Error from "../Error";
 
 export default function AlbumList() {
   const [albums, setAlbums] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
 
   useEffect(() => {
     async function getAlbums() {
@@ -20,7 +22,7 @@ export default function AlbumList() {
         console.log(data.albums);
         setAlbums(data.albums);
       } catch (error) {
-        console.log(error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -28,24 +30,24 @@ export default function AlbumList() {
     getAlbums();
   }, []);
   return (
-    <div className="wrapper">
-      <h1 className="wrapper-title">Популярные альбомы</h1>
-      <div className="album-wrapper">
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <div className="album-grid">
-            {albums.map((item) => (
-              <AlbumItem
-                title={item.name}
-                author={item.artists[0].name}
-                imageUrl={item.images[0].url}
-                key={item.id}
-              />
-            ))}
-          </div>
-        )}
+    <div className="album-wrapper">
+    {isLoading ? (
+      <Loader />
+    ) : isError ? (
+      <Error />
+    ) : (
+      <div className="album-grid">
+        {albums.map((item) => (
+          <AlbumItem
+            title={item.name}
+            author={item.artists[0].name}
+            imageUrl={item.images[0].url}
+            key={item.id}
+            id = {item.id}
+          />
+        ))}
       </div>
-    </div>
+    )}
+  </div>
   );
 }

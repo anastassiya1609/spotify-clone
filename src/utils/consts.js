@@ -1,4 +1,4 @@
-export const ACCES_TOKEN = "BQAXM-_X3_Sjo9bEdKwm-xq5l_z5troDzG9JWTzP005cDcdUCOrlChhzIHBvW31Fh5cXe_oJItfac-LgRxz1NrDTH4DNLOJkj228NVzbL595f9ETPLg";
+export const ACCES_TOKEN = "BQCH_H1_ZhOZqPFc2HoKGaiuTa5989mx9KgTnozrwZevh9N-3yKcVuLPHzeNOLh6D-NIuHr49JX3GvkxELN6OjpcMeyZ6PRg9AYKbNrKg89jagEk6c8";
 
 export const albumLinks = [
     "78bpIziExqiI9qztvNFlQu",
@@ -21,4 +21,27 @@ export const albumLinks = [
     "2cWBwpqMsDJC1ZUwz813lo",
     "5Nwsra93UQYJ6xxcjcE10x",
     "6kf46HbnYCZzP6rjvQHYzg"
+  ];
+
+  export const artistsLinks = [
+    "1Xyo4u8uXC1ZmMpatF05PJ",
+    "0du5cEVh5yTK9QJze8zA0C",
+    "66CXWjxzNUsdJxJ2JdwvnR",
+    "1HY2Jd0NmPuamShAr6KMms",
+    "6qqNVTkY8uBg9cP3Jd7DAH",
+    "1uNFoZAHBGtllmzznpCI3s",
+    "06HL4z0CvFAxyc27GXpf02",
+    "4gzpq5DPGxSnKTe4SA8HAU",
+    "4iHNK0tOyZPYnBU7nGAgpQ",
+    "6eUKZXaKkcviH0Ku9w2n3V",
+    "74KM79TiuVKeVCqs8QtB0B",
+    "5WUlDfRSoLAfcVSX1WnrxN",
+    "5pKCCKE2ajJHZ9KAiaK11H",
+    "2YZyLoL8N0Wb9xBt1NhZWg",
+    "7dGJo4pcD2V6oG8kP0tJRR",
+    "3TVXtAsR1Inumwj472S9r4",
+    "246dkjvS1zLTtiykXe5h60",
+    "0Y5tJX1MQlPlqiwlOH1tJY",
+    "5K4W6rqBFWDnAN6FQUkS6x",
+    "7CajNmpbOovFoOoasH2HaY"
   ];
