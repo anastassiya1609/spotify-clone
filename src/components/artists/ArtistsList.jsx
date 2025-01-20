@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { artistsLinks, ACCES_TOKEN } from "../../utils/consts";
-import Loader from "../Loader";
+import { artistsLinks } from "../../utils/consts";
+import Loader from "../shared/Loader";
 
-import Error from "../Error";
+import Error from "../shared/Error";
 import ArtistsItem from "./ArtistsItem";
+import { axiosInstance } from "../../services/axios";
 
 export default function ArtistsList() {
   const [artists, setArtists] = useState([]);
@@ -15,13 +16,19 @@ export default function ArtistsList() {
       try {
         setLoading(true);
         const ids = artistsLinks.join(",");
-        const responce = await fetch(
-          `https://api.spotify.com/v1/artists?ids=${ids}&market=KZ`,
-          { method: "GET", headers: { Authorization: `Bearer ${ACCES_TOKEN}` } }
-        );
-        const data = await responce.json();
-        console.log(data.artists);
-        setArtists(data.artists);
+        // const responce = await fetch(
+        //   `https://api.spotify.com/v1/artists?ids=${ids}&market=KZ`,
+        //   { method: "GET", headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+        // );
+        // const data = await responce.json();
+
+        const res = await axiosInstance.get("/artists", {
+          params: {
+            ids: ids,
+            market: "KZ",
+          },
+        });
+        setArtists(res.data.artists);
       } catch (error) {
         setError(true);
       } finally {
@@ -43,6 +50,7 @@ export default function ArtistsList() {
               name={item.name}
               profilePictureUrl={item.images[0].url}
               key={item.id}
+              id={item.id}
             />
           ))}
         </div>

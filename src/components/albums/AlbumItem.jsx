@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { SINGLE_ALBUMS_PAGE_ROUTE } from "../../utils/consts";
 
 export default function AlbumItem({imageUrl, title, author, id}) {
     return (
-      <Link to={`/albums/${id}`} className="album-item">
+      <Link to={SINGLE_ALBUMS_PAGE_ROUTE.replace(":id", id)} className="album-item">
         <img
           src={imageUrl}
           alt={title}

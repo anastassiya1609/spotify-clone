@@ -1,26 +1,30 @@
-import Header from "./components/core/Header";
-import Sidebar from "./components/core/Sidebar";
+import { useEffect, useState } from "react";
 import "./assets/css/style.css";
-import TopAlbumsPage from "./pages/TopAlbumsPage";
-import { Route, Routes } from "react-router-dom";
-import TopArtistsPage from "./pages/TopArtistsPage";
-import SettingsPage from './pages/SettingsPage';
-import NotFoundPage from "./pages/NotFoundPage";
+import AppRouter from "./components/core/AppRouter";
+import Layout from "./components/core/Layout";
+import { getAccessToken } from "./services/auth";
 
 export default function App() {
+  const [error, setError] = useState("");
+  useEffect(() => {
+    async function getToken() {
+      try {
+        await getAccessToken();
+      } catch (error) {
+        console.log(error);
+        setError("Error during fetching access token");
+      }
+    }
+    getToken();
+  }, []);
+
+  if (error) {
+    return <div style={{ color: "#fff" }}>{error}</div>;
+  }
+
   return (
-    <div className="app">
-      <Header />
-      <div className="container">
-        <Sidebar />
-        <Routes>
-          <Route path="/" element = {<TopAlbumsPage/>}/>
-          <Route path="/artists" element={<TopArtistsPage/>}/>
-          <Route path="/settings" element={<SettingsPage/>}/>
-          <Route path="*" element={<NotFoundPage/>}/>
-        </Routes>
-      
-      </div>
-    </div>
+    <Layout>
+      <AppRouter />
+    </Layout>
   );
 }
