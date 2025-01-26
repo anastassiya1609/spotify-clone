@@ -4,6 +4,7 @@ export const ALBUMS_PAGE_ROUTE = "/";
 export const NOT_FOUND_PAGE_ROUTE = "*";
 export const SINGLE_ALBUMS_PAGE_ROUTE = "/albums/:id";
 export const SINGLE_ARTIST_PAGE_ROUTE = "/artists/:id";
+export const SEARCH_PAGE_ROUTE = "/search";
 
 export const ACCES_TOKEN =
   "BQCdH6_2VdLOyfHuULHd7J0q6DMA8peaIRseto2ql5YkApOcLwyEizq1zeV7wVDs9JrRHNX2gbGR9BUDrrpO_CKy-R020a1Md9P69Rd1hhrr9kZQOLI";

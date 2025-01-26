@@ -3,8 +3,8 @@ export default function TrackItem({
   title,
   duration,
   author,
+  imageUrl,
   isExtended = false,
-  imageUrl
 }) {
   const classNames = isExtended
     ? "track-line track-line__extended"
@@ -17,7 +17,6 @@ export default function TrackItem({
           <img src={imageUrl} alt="Poster" />
         </div>
       )}
-
       <div className="track-song">
         <h6 className="track-song__name">{title}</h6>
         <p className="track-song__author">{author}</p>
