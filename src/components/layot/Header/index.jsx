@@ -1,9 +1,10 @@
 import { FiSearch } from "react-icons/fi";
 import { GrHomeRounded } from "react-icons/gr";
-import logo from "../../assets/img/logo.svg";
+import logo from "../../../assets/img/logo.svg";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { SEARCH_PAGE_ROUTE } from "../../utils/consts";
+import { Link, useNavigate } from "react-router-dom";
+import { ALBUMS_PAGE_ROUTE, SEARCH_PAGE_ROUTE } from "../../../utils/consts";
+import styles from "./Header.module.css"
 
 export default function Header() {
   const [searchInput, setSearchInput] = useState("");
@@ -17,8 +18,8 @@ export default function Header() {
     }
   }
   return (
-    <div className="header">
-      <div className="header-part">
+    <div className={styles.header}>
+      <div className={styles.part}>
         <img
           src={logo}
           alt="Logo"
@@ -27,24 +28,24 @@ export default function Header() {
           className="header-img"
         />
       </div>
-      <div className="header-part">
-        <a href="test" className="home-btn">
+      <div className={styles.part}>
+        <Link to={ALBUMS_PAGE_ROUTE} className={styles.btn}>
           <GrHomeRounded />
-        </a>
-        <form className="search" onSubmit={handleSubmit}>
+        </Link>
+        <form className={styles.search} onSubmit={handleSubmit}>
           <input
             type="text"
-            className="search-input"
+            className={styles.input}
             placeholder="Что хочешь включить?"
             value={searchInput}
             onChange={(e) => {
               setSearchInput(e.target.value);
             }}
           />
-          <FiSearch className="search-icon" />
+          <FiSearch className={styles.icon} />
         </form>
       </div>
-      <div className="header-part"></div>
+      <div className={styles.part}></div>
     </div>
   );
 }

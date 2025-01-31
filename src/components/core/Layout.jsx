@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import Header from "../layot/Header";
 import Sidebar from "../layot/Sidebar";
 import { useTheme } from "../../providers/ThemeProvider";
 import { useEffect } from "react";
+import Header from "../layot/Header";
 
 export default function Layout(props) {
   const { isLightTheme } = useTheme();
